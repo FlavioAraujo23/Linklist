@@ -1,12 +1,11 @@
-import Header from '@/Components/Header'
+
 import Image from 'next/image'
 import Link from 'next/link'
 
 export default function Home() {
   return (
     <main>
-      <Header />
-      <section className='p-6 pt-32 max-w-4xl mx-auto'>
+      <section className='pt-32'>
         <div className='max-w-md mb-8'>
           <h1 className='text-6xl font-bold'>
             Seu único link <br/> para tudo
