@@ -1,4 +1,5 @@
 
+import HeroForm from '@/Components/forms/HeroForm'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -14,16 +15,7 @@ export default function Home() {
             Compartilhe seus links, redes sociais, informações de contato e mais em uma única página!
           </h2>
         </div>
-        <form className='inline-flex items-center shadow-lg shadow-gray-500/20'>
-          <span className='bg-white py-4 pl-4'>
-            linklist.para/
-          </span>
-          <input type="text" className='py-4' placeholder='Nome do usuário'/>
-          <button type="submit" className='bg-blue-500 text-white py-4 px-6'>
-            Inscreva-se de graça
-          </button>
-        </form>
-
+        <HeroForm />
       </section>
     </main>
   
