@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { signIn } from 'next-auth/react';
 import { redirect } from "next/navigation";
 
-export default function HeroForm() {
+export default function HeroForm({user}) {
   useEffect(() => {
     if('localStorage' in window && window.localStorage.getItem('desiredUsername')) {
       const username =  window.localStorage.getItem('desiredUsername');
@@ -20,7 +20,12 @@ export default function HeroForm() {
     const input = form.querySelector('input');
     const username = input.value
     if (username.length > 0) {
-      window.localStorage.setItem('desiredUsername', username)
+      if (user) {
+        redirect('/account?desiredUsername='+username);
+      } else {
+        window.localStorage.setItem('desiredUsername', username);
+        await signIn('google');
+      }
     }
   }
 

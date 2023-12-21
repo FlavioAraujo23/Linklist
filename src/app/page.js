@@ -1,9 +1,9 @@
-
 import HeroForm from '@/Components/forms/HeroForm'
-import Image from 'next/image'
-import Link from 'next/link'
+import { getSession } from 'next-auth/react'
+import { authOptions } from './api/auth/[...nextauth]/route'
 
-export default function Home() {
+export default async function Home() {
+  const session = await getSession(authOptions)
   return (
     <main>
       <section className='pt-32'>
@@ -15,7 +15,7 @@ export default function Home() {
             Compartilhe seus links, redes sociais, informações de contato e mais em uma única página!
           </h2>
         </div>
-        <HeroForm />
+        <HeroForm user={session?.user} />
       </section>
     </main>
   
