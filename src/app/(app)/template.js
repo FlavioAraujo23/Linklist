@@ -6,6 +6,7 @@ import { redirect } from 'next/navigation'
 import Image from "next/image"
 import { headers } from 'next/headers'
 import AppSidebar from '@/Components/layout/AppSidebar'
+import { Toaster } from 'react-hot-toast'
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -27,6 +28,7 @@ export default async function AppTemplate({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
+        <Toaster/>
         <main className='flex min-h-screen'>
           <aside className='bg-white w-48 p-4 shadow'>
             <div className='rounded-full overflow-hidden aspect-square w-24 mx-auto'>

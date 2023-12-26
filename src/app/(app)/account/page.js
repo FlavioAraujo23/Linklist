@@ -4,6 +4,7 @@ import { getServerSession } from 'next-auth';
 import UsernameForm from "@/Components/forms/UsernameForm";
 import { Page, PageSchema } from "@/models/Page";
 import mongoose from "mongoose";
+import PageSettingsForm from "@/Components/forms/PageSettingsForm";
 
 
 export default async function AccountPage({searchParams}) {
@@ -17,7 +18,7 @@ export default async function AccountPage({searchParams}) {
   const page = await mongoose.model('Page').findOne({owner: session?.user.email});
   if(page) {
     return (
-      <div>Sua página é: /{page.uri}</div>
+      <PageSettingsForm page={page} user={session.user} />
     )
   }
   return(
