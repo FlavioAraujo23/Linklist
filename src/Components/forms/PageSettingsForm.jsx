@@ -1,5 +1,5 @@
 'use client';
-import { faImage, faPalette, faSave } from "@fortawesome/free-solid-svg-icons";
+import { faCloudArrowUp, faImage, faPalette, faSave } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 import RadioTogglers from "../formItems/RadioTogglers";
 import SubmitButton from "../buttons/SubmitButton";
@@ -11,18 +11,52 @@ import { useState } from "react";
 export default function PageSettingsForm({page,user}) {
   const [bgType, setBgType] = useState(page.bgType);
   const [bgColor, setBgColor] = useState(page.bgColor);
+  const [bgImage, setBgImage] = useState(page.bgImage);
   async function saveBaseSettings(formData) {    
       const result = await savePageActions(formData);
       if (result) {
         toast.success('Alterações salvas')
       }
   }
+  async function handleFileChange(ev) {
+    const file = ev.target.files?.[0];
+    if (file) {
+      const uploadPromise = new Promise((resolve, reject) => {
+        const data = new FormData;
+        data.set('file', file);
+        fetch('/api/upload', {
+          method: 'POST',
+          body:data,
+        }).then(response => {
+          if (response.ok) {
+            response.json().then(link => {
+              setBgImage(link);
+              resolve();
+            });            
+            } else {
+              reject();
+            }
+        });
+      });
+
+      await toast.promise(uploadPromise, {
+        loading: 'Carregando...',
+        success: 'Salvo',
+        error: 'Erro no carregamento!',
+      })
+
+    }
+  }
   return (
     <div className="-m-4">
       <form action={saveBaseSettings}>
         <div 
-          className="bg-gray-300 py-16 flex justify-center items-center"
-          style={{backgroundColor:bgColor}}
+          className="bg-gray-300 py-4 min-h-[300px] flex justify-center items-center bg-cover bg-center"
+          style={
+            bgType === 'color' 
+            ? {backgroundColor:bgColor} 
+            : {backgroundImage:`url(${bgImage})`}
+          }
         >
           <div>
             <RadioTogglers 
@@ -49,13 +83,19 @@ export default function PageSettingsForm({page,user}) {
               )}
               {bgType === 'image' && (
                 <div className="flex justify-center">
-                  <input type="file" name="" id="" />
-                  <button
-                   type="button"
-                   className="bg-white shadow px-4 py-2 mt-2"
-                  >
-                    Trocar imagem
-                  </button>
+                  <label className="bg-white shadow px-4 py-2 mt-2 flex gap-2">
+                    <input type="hidden" name="bgImage" value={bgImage} />
+                    <input 
+                     type="file"
+                     onChange={handleFileChange}
+                     className="hidden"
+                    />
+                    <div className="flex gap-2 items-center cursor-pointer">
+                      <FontAwesomeIcon icon={faCloudArrowUp} className="text-gray-700"/>
+                      <span>Trocar imagem</span>                      
+                    </div>
+
+                  </label>
                 </div>
               )}
           </div>
@@ -104,5 +144,3 @@ export default function PageSettingsForm({page,user}) {
     </div>
   );
 }
-
-

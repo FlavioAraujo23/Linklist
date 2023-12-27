@@ -8,6 +8,7 @@ export const PageSchema = new Schema({
   bio: {type: String, default: ''},
   bgType: {type: String, default: 'color'},
   bgColor: {type: String, default: '#000'},
+  bgImage: {type: String, default: ''},
 }, {timestamps: true});
 
 export const Page = models?.Page || model('Page', PageSchema);
