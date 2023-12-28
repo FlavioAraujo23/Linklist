@@ -30,7 +30,7 @@ export default async function AppTemplate({ children }) {
       <body className={inter.className}>
         <Toaster/>
         <main className='flex min-h-screen'>
-          <aside className='bg-white w-48 p-4 shadow'>
+          <aside className='bg-white w-48 p-4 pt-8 shadow'>
             <div className='rounded-full overflow-hidden aspect-square w-24 mx-auto'>
               <Image src={session.user.image} width={256} height={256} alt={'avatar'} />
             </div>

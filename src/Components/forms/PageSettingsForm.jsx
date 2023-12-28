@@ -12,41 +12,55 @@ export default function PageSettingsForm({page,user}) {
   const [bgType, setBgType] = useState(page.bgType);
   const [bgColor, setBgColor] = useState(page.bgColor);
   const [bgImage, setBgImage] = useState(page.bgImage);
+  const [avatar, setAvatar] = useState(user?.image);
   async function saveBaseSettings(formData) {    
       const result = await savePageActions(formData);
       if (result) {
         toast.success('Alterações salvas')
       }
   }
-  async function handleFileChange(ev) {
-    const file = ev.target.files?.[0];
-    if (file) {
-      const uploadPromise = new Promise((resolve, reject) => {
-        const data = new FormData;
-        data.set('file', file);
-        fetch('/api/upload', {
-          method: 'POST',
-          body:data,
-        }).then(response => {
-          if (response.ok) {
-            response.json().then(link => {
-              setBgImage(link);
-              resolve();
-            });            
-            } else {
-              reject();
-            }
+  async function upload(ev, callbackFn) {
+    
+      const file = ev.target.files?.[0];
+      if (file) {
+        const uploadPromise = new Promise((resolve, reject) => {
+          const data = new FormData;
+          data.set('file', file);
+          fetch('/api/upload', {
+            method: 'POST',
+            body:data,
+          }).then(response => {
+            if (response.ok) {
+              response.json().then(link => {
+                callbackFn(link);
+                resolve(link);
+              });            
+              } else {
+                reject();
+              }
+          });
         });
-      });
-
-      await toast.promise(uploadPromise, {
-        loading: 'Carregando...',
-        success: 'Salvo',
-        error: 'Erro no carregamento!',
-      })
-
-    }
+  
+        toast.promise(uploadPromise, {
+          loading: 'Carregando...',
+          success: 'Salvo',
+          error: 'Erro no carregamento!',
+        })
+      }
   }
+
+  async function handleCoverImageChange(ev) {
+    await upload(ev, link => {
+      setBgImage(link);
+    });
+  }
+
+  async function handleAvatarImageChange(ev) {
+    await upload(ev, link => {
+      setAvatar(link);
+    })
+  }
+  
   return (
     <div className="-m-4">
       <form action={saveBaseSettings}>
@@ -87,7 +101,7 @@ export default function PageSettingsForm({page,user}) {
                     <input type="hidden" name="bgImage" value={bgImage} />
                     <input 
                      type="file"
-                     onChange={handleFileChange}
+                     onChange={handleCoverImageChange}
                      className="hidden"
                     />
                     <div className="flex gap-2 items-center cursor-pointer">
@@ -101,13 +115,32 @@ export default function PageSettingsForm({page,user}) {
           </div>
         </div>
         <div className="flex justify-center -mb-12">
-          <Image 
-           className="rounded-full relative -top-8 border-4 border-white shadow shadow-black/50"
-           src={user?.image}
-           alt="avatar"
-           width={128}
-           height={128}
-          />
+          <div className="relative -top-8 w-[128px] h-[128px]">
+            <div className="overflow-hidden h-full rounded-full  border-4 border-white shadow shadow-black/50">
+              <Image 
+                className="w-full h-full object-cover"
+                src={avatar}
+                objectFit="cover"
+                alt="avatar"
+                width={128}
+                height={128}
+              />              
+            </div>
+            <label
+              htmlFor="avatarIn" 
+              className="absolute bottom-0 -right-2 bg-white p-2 rounded-full shadow shadow-black/50 aspect-square flex items-center cursor-pointer"
+            >
+              <FontAwesomeIcon size="xl" icon={faCloudArrowUp}/>
+            </label>
+            <input 
+              id="avatarIn"
+              type="file"
+              className="hidden"
+              onChange={handleAvatarImageChange}
+            />
+            <input type="hidden" name="avatar" value={avatar} />
+          </div>
+          
         </div>
         <div className="p-4">
           <label className="input-label" htmlFor="nameIn">Nome</label>
