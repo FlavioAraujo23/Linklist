@@ -39,9 +39,7 @@ export default async function AppTemplate({ children }) {
             </div>
           </aside>
           <div className='grow'>
-            <div className='bg-white m-8 p-4 shadow'>
               {children}
-            </div>
           </div>
         </main>     
       </body>
