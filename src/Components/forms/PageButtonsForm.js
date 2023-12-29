@@ -27,8 +27,9 @@ function upperFirst(str) {
 }
 
 export default function PageButtonsForm({user, page}) {
-
-  const pageSavedButtonsKeys = Object.keys(page.buttons);
+  console.log(page)
+  const pageSavedButtonsKeys = (page && page.buttons) ? Object.keys(page.buttons) : [];
+ // const pageSavedButtonsKeys = Object.keys(page.buttons);
   const pageSavedButtonsInfo = pageSavedButtonsKeys.map(k => allButtons.find(b => b.key === k));
   const [activeButtons, setActiveButtons] = useState(pageSavedButtonsInfo);
 
@@ -55,11 +56,11 @@ export default function PageButtonsForm({user, page}) {
     <SectionBox>
       <form action={saveButtons}>
         <h2 className="text-2xl font-bold mb-4">Botões</h2>
-        <ReactSortable list={activeButtons} setList={setActiveButtons}>
+        <ReactSortable handle={'.handle'} list={activeButtons} setList={setActiveButtons}>
           {activeButtons.map(button => (
             <div className="mb-4 flex items-center" key={button.key}>
-              <div className="w-48 flex h-full text-gray-700 p-2 gap-2 items-center">
-                <FontAwesomeIcon icon={faGripLines} className="cursor-pointer text-gray-400"/>
+              <div className="w-56 flex h-full text-gray-700 p-2 gap-2 items-center">
+                <FontAwesomeIcon icon={faGripLines} className="cursor-pointer text-gray-400 handle p-2"/>
                 <FontAwesomeIcon icon={button.icon} />
                 <span>{upperFirst(button.label)}:</span>
               </div>

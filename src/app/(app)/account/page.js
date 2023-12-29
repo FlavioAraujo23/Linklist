@@ -6,7 +6,7 @@ import mongoose from "mongoose";
 import { Page } from "@/models/Page";
 import PageSettingsForm from "@/Components/forms/PageSettingsForm";
 import PageButtonsForm from "@/Components/forms/PageButtonsForm";
-
+import PageLinksForm from "@/Components/forms/PageLinksForm";
 
 export default async function AccountPage({searchParams}) {
   const session = await getServerSession(authOptions);
@@ -22,6 +22,7 @@ export default async function AccountPage({searchParams}) {
       <>
         <PageSettingsForm page={page} user={session.user} />
         <PageButtonsForm page={page} user={session.user} />
+        <PageLinksForm page={page} user={session.user} />
       </> 
     )
   }

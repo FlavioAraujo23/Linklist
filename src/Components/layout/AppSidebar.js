@@ -14,7 +14,7 @@ export default function AppSidebar() {
        href={'/account'}
        className={'flex gap-4 p-2' + (path === '/account' ? 'text-blue-500' : '')}>
         <FontAwesomeIcon 
-         fixedWidth={1}
+         fixedWidth={true}
          icon={faFileLines} 
          className='w-6 h-6'
         />
@@ -24,7 +24,7 @@ export default function AppSidebar() {
        href={'/analytics'}
        className={'flex gap-4 p-2' + (path === '/analytics' ? 'text-blue-500' : '')}>
         <FontAwesomeIcon 
-         fixedWidth={1}
+         fixedWidth={true}
          icon={faChartLine} 
          className='w-6 h-6'
         />
