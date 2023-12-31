@@ -9,7 +9,7 @@ import SubmitButton from './../buttons/SubmitButton';
 import { SavePageButtons } from "@/actions/pageActions";
 import toast from "react-hot-toast";
 
-const allButtons = [
+export const allButtons = [
   {key: 'email', 'label':'e-mail', icon: faEnvelope, placeholder: 'teste@exemplo.com'},
   {key: 'mobile', 'label':'mobile', icon: faMobile, placeholder: '+55 11 9999-9999'},
   {key: 'instagram', 'label':'instagram', icon: faInstagram, placeholder: 'test@example.com'},
