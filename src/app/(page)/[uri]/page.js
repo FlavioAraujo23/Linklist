@@ -1,3 +1,4 @@
+import { Event } from "@/models/Event";
 import { Page } from "@/models/Page";
 import { User } from "@/models/User";
 import { faLink, faLocationDot } from "@fortawesome/free-solid-svg-icons";
@@ -35,6 +36,7 @@ export default async function UserPage({params}) {
   mongoose.connect(process.env.MONGO_URI);
   const page = await Page.findOne({uri});
   const user = await User.findOne({email:page.owner});
+  await Event.create({uri:uri, page:uri, type:'view'});
 
   return (
     <div className="bg-blue-950 text-white min-h-screen">
@@ -78,6 +80,8 @@ export default async function UserPage({params}) {
       <div className="max-w-2xl mx-auto grid md:grid-cols-2 gap-6 p-4 px-8">
         {page.links.map(link => (
           <Link
+            target="_blank"
+            ping={`${process.env.URL}/api/click?url=${btoa(link.url)}&page=${page.uri}`}
             className="bg-indigo-800 p-2 flex " 
             href={link.url}
             key={link.title}
