@@ -92,9 +92,9 @@ export default function PageSettingsForm({page,user}) {
             <div className="relative -top-8 w-[128px] h-[128px]">
               <div className="overflow-hidden h-full rounded-full  border-4 border-white shadow shadow-black/50">
                 <Image 
-                  className="w-full h-full object-cover"
+                  className="rounded-full w-full h-full object-cover"
                   src={avatar}
-                  objectFit="cover"
+                  style={{objectFit:"cover"}}
                   alt="avatar"
                   width={128}
                   height={128}
