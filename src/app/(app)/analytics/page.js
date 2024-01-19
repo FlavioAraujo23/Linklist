@@ -59,7 +59,7 @@ export default async function AnalyticsPage() {
       <SectionBox>
         <h2 className="text-xl mt-2 mb-6 text-center">Clicks</h2>
           {page.links.map(link => (
-            <div key={link.title} className="flex items-center gap-4 border-t border-gray-200 py-4">
+            <div key={link.title} className="md:flex items-center gap-4 border-t border-gray-200 py-4">
               <div className="text-blue-500 pl-4">
                 <FontAwesomeIcon icon={faLink} />
               </div>
@@ -69,7 +69,7 @@ export default async function AnalyticsPage() {
                 <a className="text-xs text-blue-400" target="_blank" href={link.uri}>{link.uri}</a>
               </div>
               <div className="text-center">
-                <div className="border rounded-md p-2">
+                <div className="border rounded-md p-2 mt-1 md:mt-0">
                   <div className="text-3xl">   
                     {
                       clicks
@@ -83,7 +83,7 @@ export default async function AnalyticsPage() {
                 </div>
               
               <div className="text-center">
-                <div className="border rounded-md p-2">
+                <div className="border rounded-md p-2 mt-1 md:mt-0">
                   <div className="text-3xl">   
                     {clicks.filter(c => c.uri === link.url).length}
                   </div>

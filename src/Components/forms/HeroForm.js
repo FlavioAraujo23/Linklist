@@ -38,7 +38,6 @@ export default function HeroForm({user}) {
         </span>
     <input
       type="text"
-      className=""
       style={{backgroundColor:'white',marginBottom:0,paddingLeft:0}}
       placeholder="username"/>
     <button

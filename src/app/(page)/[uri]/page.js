@@ -1,7 +1,8 @@
 import { Event } from "@/models/Event";
 import { Page } from "@/models/Page";
 import { User } from "@/models/User";
-import { faLink, faLocationDot } from "@fortawesome/free-solid-svg-icons";
+import { faDiscord, faFacebook, faGithub, faInstagram, faTelegram, faTiktok, faWhatsapp, faYoutube } from "@fortawesome/free-brands-svg-icons";
+import { faEnvelope, faLink, faLocationDot, faMobile } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import mongoose from "mongoose";
 import Image from "next/image";

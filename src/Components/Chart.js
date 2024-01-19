@@ -12,7 +12,7 @@ import { addDays, differenceInDays, formatISO9075, parseISO } from "date-fns";
       date,
       [xLabelKey]: value?.[xLabelKey] || 0
     });
-    const nextDate = groupedViews?.[index + 1]?.date;
+    const nextDate = data?.[index + 1]?.date;
     if(date && nextDate) {
       const daysBetween = differenceInDays(parseISO(nextDate), parseISO(date));
       if(daysBetween > 0) {

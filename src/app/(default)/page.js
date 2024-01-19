@@ -6,7 +6,7 @@ export default async function Home() {
   const session = await getSession(authOptions)
   return (
     <main>
-      <section className='pt-32'>
+      <section className='pt-16'>
         <div className='max-w-md mb-8'>
           <h1 className='text-6xl font-bold'>
             Seu único link <br/> para tudo
