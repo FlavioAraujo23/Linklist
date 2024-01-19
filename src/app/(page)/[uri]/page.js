@@ -33,11 +33,12 @@ function buttonLink(key, value) {
 
 
 export default async function UserPage({params}) {
-  const uri = params.uri;
-  mongoose.connect(process.env.MONGO_URI);
-  const page = await Page.findOne({uri});
-  const user = await User.findOne({email:page.owner});
-  await Event.create({uri:uri, page:uri, type:'view'});
+      const uri = params.uri;
+      if (uri === 'favicon.ico') return
+      mongoose.connect(process.env.MONGO_URI);
+      const page = await Page.findOne({uri});
+      const user = await User.findOne({email:page.owner});
+      await Event.create({uri:uri, page:uri, type:'view'});
 
   return (
     <div className="bg-blue-950 text-white min-h-screen">
@@ -87,7 +88,7 @@ export default async function UserPage({params}) {
             href={link.url}
             key={link.title}
           >
-            <div className="relative -left-4 grow overflow-hidden ">
+            <div className="relative -left-4 overflow-hidden w-max">
               <div className="w-16 h-16 bg-blue-700 aspect-square relative flex items-center justify-center">
                 {link.icon && (
                   <Image

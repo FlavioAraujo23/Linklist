@@ -6,7 +6,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
  return (
     <html lang="pt-br">
-      <body>{children}</body>
+      <body suppressHydrationWarning={true} >{children}</body>
     </html>
   )
 }
