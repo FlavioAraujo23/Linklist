@@ -34,7 +34,7 @@ export default function HeroForm({user}) {
     onSubmit={handleSubmit}
     className="inline-flex items-center shadow-lg bg-white shadow-gray-500/20 w-max"
     >
-      <span className="bg-white md:py-4 md:pl-4 py-2 pl-2">
+      <span className="bg-white md:py-4 md:pl-4" style={{padding: '0.5rem 0 0.5rem 0.5rem'}}>
         linklist.para/
       </span>
     <input
@@ -43,8 +43,8 @@ export default function HeroForm({user}) {
       placeholder="username"/>
     <button
       type="submit"
-      style={{backgroundColor:'#2563EB', color:'white'}}
-      className=" md:py-4 md:px-6 py-2 px-4 whitespace-nowrap md:w-56 w-46"
+      style={{backgroundColor:'#2563EB', color:'white', padding: '1.5rem 1rem 1.5rem 1rem'}}
+      className="py-2 px-4 whitespace-nowrap md:w-56 w-46"
     >
       Inscreva-se de graça!
     </button>

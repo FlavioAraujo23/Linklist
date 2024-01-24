@@ -71,7 +71,7 @@ export default function PageSettingsForm({page,user}) {
                 )}
                 {bgType === 'image' && (
                   <div className="flex justify-center">
-                    <label className="bg-white shadow px-4 py-2 mt-2 flex gap-2">
+                    <label className="bg-white shadow flex gap-2" style={{padding:'0.5rem 1rem 0.5rem 1rem', marginTop:'0.5rem'}}>
                       <input type="hidden" name="bgImage" value={bgImage} />
                       <input 
                       type="file"
@@ -102,7 +102,15 @@ export default function PageSettingsForm({page,user}) {
               </div>
               <label
                 htmlFor="avatarIn" 
-                className="absolute bottom-0 -right-2 bg-white p-2 rounded-full shadow shadow-black/50 aspect-square flex items-center cursor-pointer"
+                style={{
+                  position: 'absolute',
+                  bottom: 0,
+                  right: '-0.5rem',
+                  backgroundColor: 'white',
+                  padding: '0.5rem',
+                  alignItems: 'center',
+                }}
+                className="rounded-full shadow shadow-black/50 aspect-square flex cursor-pointer"
               >
                 <FontAwesomeIcon size="xl" icon={faCloudArrowUp}/>
               </label>
