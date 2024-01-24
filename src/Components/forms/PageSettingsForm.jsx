@@ -90,7 +90,7 @@ export default function PageSettingsForm({page,user}) {
           </div>
           <div className="flex justify-center -mb-12">
             <div className="relative -top-8 w-[128px] h-[128px]">
-              <div className="overflow-hidden h-full rounded-full  border-4 border-white shadow shadow-black/50">
+              <div className="overflow-hidden rounded-full border-4 border-white shadow shadow-black/50 aspect-square w-32">
                 <Image 
                   className="rounded-full w-full h-full object-cover"
                   src={avatar}

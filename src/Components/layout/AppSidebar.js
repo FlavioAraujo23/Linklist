@@ -10,10 +10,10 @@ export default function AppSidebar() {
   const path = usePathname();
   return (
     <>
-      <nav className='flex mx-auto flex-col text-center mt-8 gap-6 text-gray-500'>
+      <nav className='flex mx-auto flex-col text-center mt-8 gap-6 text-gray-500 h-full flex-wrap'>
         <Link
         href={'/account'}
-        className={'flex gap-4 p-2' + (path === '/account' ? 'text-blue-500' : '')}>
+        className={'flex gap-4 p-2 ' + (path === '/account' ? 'text-blue-500' : '')}>
           <FontAwesomeIcon 
           fixedWidth={true}
           icon={faFileLines} 
@@ -23,7 +23,7 @@ export default function AppSidebar() {
         </Link>
         <Link
         href={'/analytics'}
-        className={'flex gap-4 p-2' + (path === '/analytics' ? 'text-blue-500' : '')}>
+        className={'flex gap-4 p-2 ' + (path === '/analytics' ? 'text-blue-500' : '')}>
           <FontAwesomeIcon 
           fixedWidth={true}
           icon={faChartLine} 

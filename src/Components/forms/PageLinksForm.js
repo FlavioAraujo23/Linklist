@@ -146,7 +146,7 @@ export default function PageLinksForm({user, page}) {
           </ReactSortable>
         </div>
         <div className="border-t pt-4 mt-4">
-          <SubmitButton className="max-w-xs mx-auto">
+          <SubmitButton>
             <FontAwesomeIcon icon={faSave} />
             <span>Salvar</span>
           </SubmitButton>

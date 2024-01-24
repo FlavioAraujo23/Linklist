@@ -114,7 +114,7 @@ export default function PageButtonsForm({user,page}) {
         <div className="max-w-xs mx-auto mt-8">
           <SubmitButton>
             <FontAwesomeIcon icon={faSave} />
-            <span>Save</span>
+            <span>Salvar</span>
           </SubmitButton>
         </div>
       </form>

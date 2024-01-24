@@ -9,7 +9,7 @@ export default async function Header() {
   const session = await getServerSession(authOptions);
   return (
     <header className='bg-white border-b py-4'>
-      <div className='max-w-4xl flex justify-between mx-auto md:px-6 px-4'>
+      <div className='flex justify-between md:px-6 px-4'>
         <div className='flex items-center md:gap-6 gap-4 pr-2 md:pr-0'>
           <Link href={'/'} className="flex items-center gap-2 text-blue-500">
             <FontAwesomeIcon icon={faLink} className="text-blue-500"/>
@@ -24,7 +24,7 @@ export default async function Header() {
         <nav className='flex pl-4 md:pl-0 items-center text-xs gap-1 md:gap-4 md:text-sm text-slate-500'>
           {!!session && (
               <>
-                <Link href={'/account'} className="">
+                <Link href={'/account'} className="w-12">
                   Hello, {session?.user?.name}
                 </Link>
                 <LogoutButton />

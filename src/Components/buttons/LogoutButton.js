@@ -7,7 +7,7 @@ export default function LogoutButton({
 }) {
   return (
     <button 
-     className={'flex gap-2 items-center border p-2 px-4 shadow'}
+     className={'flex gap-2 items-center border p-2 md:px-4 px-2 shadow'}
      onClick={() => signOut()}>
       {iconLeft && (
         <FontAwesomeIcon icon={faRightFromBracket} className={''} />

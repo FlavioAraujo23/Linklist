@@ -32,18 +32,18 @@ export default function HeroForm({user}) {
   return (
     <form
     onSubmit={handleSubmit}
-    className="inline-flex items-center shadow-lg bg-white shadow-gray-500/20"
+    className="inline-flex items-center shadow-lg bg-white shadow-gray-500/20 w-max"
     >
-      <span className="bg-white py-4 pl-4">
+      <span className="bg-white md:py-4 md:pl-4 py-2 pl-2">
         linklist.para/
       </span>
     <input
       type="text"
-      style={{backgroundColor:'white',marginBottom:0,paddingLeft:0}}
+      style={{backgroundColor:'white',marginBottom:0,paddingLeft:0, width:'5rem'}}
       placeholder="username"/>
     <button
       type="submit"
-      className="bg-blue-500 text-white py-4 px-6 whitespace-nowrap"
+      className="bg-blue-600 text-white md:py-4 md:px-6 py-2 px-4 whitespace-nowrap md:w-56 w-46"
     >
       Inscreva-se de graça!
     </button>

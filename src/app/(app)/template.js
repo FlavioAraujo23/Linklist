@@ -43,7 +43,7 @@ export default async function AppTemplate({ children }) {
           <input type="checkbox" id="navCb" className='hidden'/>
           <label htmlFor="navCb" className=" hidden backdrop fixed inset-0 bg-black/80 z-10"></label>
           <aside className='bg-white w-48 p-4 pt-6 shadow fixed md:static -left-48 top-0 bottom-0 z-20 transition-all'>
-            <div className="sticky top-0 pt-2">
+            <div className="sticky top-0 pt-2 h-full flex-col flex">
               <div className='rounded-full overflow-hidden aspect-square w-24 mx-auto'>
                 <Image 
                   src={session.user.image} 
