@@ -67,12 +67,13 @@ export default function PageLinksForm({user, page}) {
         <button
           onClick={addNewLink}
           type="button"
-          className="text-blue-500 text-lg flex gap-2 items-center cursor-pointer"
+          className="text-lg flex gap-2 items-center cursor-pointer"
+          style={{color: '#3B82F6'}}
         >
-          <FontAwesomeIcon className="bg-blue-500 text-white p-1 rounded-full aspect-square" icon={faPlus} />
+          <FontAwesomeIcon style={{backgroundColor:'#3B82F6', color: 'white'}}  className=" p-1 rounded-full aspect-square" icon={faPlus} />
           <span>Adicionar</span>
         </button>
-        <div className="">
+        <div>
           <ReactSortable handle=".handle" list={links} setList={setLinks}>
             {links.map(l => (
               <div key={l.key} className="mt-8 md:flex gap-6 items-center">

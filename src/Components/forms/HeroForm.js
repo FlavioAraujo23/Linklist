@@ -43,7 +43,8 @@ export default function HeroForm({user}) {
       placeholder="username"/>
     <button
       type="submit"
-      className="bg-blue-600 text-white md:py-4 md:px-6 py-2 px-4 whitespace-nowrap md:w-56 w-46"
+      style={{backgroundColor:'#2563EB', color:'white'}}
+      className=" md:py-4 md:px-6 py-2 px-4 whitespace-nowrap md:w-56 w-46"
     >
       Inscreva-se de graça!
     </button>
