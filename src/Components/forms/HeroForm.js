@@ -39,12 +39,12 @@ export default function HeroForm({user}) {
       </span>
     <input
       type="text"
-      style={{backgroundColor:'white',marginBottom:0,paddingLeft:0, width:'5rem'}}
+      style={{backgroundColor:'white',marginBottom:0,paddingLeft:0, width:'6rem'}}
       placeholder="username"/>
     <button
       type="submit"
       style={{backgroundColor:'#2563EB', color:'white', padding: '1.5rem 1rem 1.5rem 1rem'}}
-      className="py-2 px-4 whitespace-nowrap md:w-56 w-46"
+      className="py-2 px-4 whitespace-nowrap md:w-56 w-max h-16 flex items-center"
     >
       Inscreva-se de graça!
     </button>

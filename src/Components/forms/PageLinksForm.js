@@ -63,23 +63,24 @@ export default function PageLinksForm({user, page}) {
   return (
     <SectionBox>
       <form action={save}>
-        <h2 className="text-2xl font-bold mb-4">Links</h2>
+        <h2 className="text-2xl font-bold" style={{marginBottom:'1rem'}}>Links</h2>
         <button
           onClick={addNewLink}
           type="button"
           className="text-lg flex gap-2 items-center cursor-pointer"
           style={{color: '#3B82F6'}}
         >
-          <FontAwesomeIcon style={{backgroundColor:'#3B82F6', color: 'white'}}  className=" p-1 rounded-full aspect-square" icon={faPlus} />
+          <FontAwesomeIcon style={{backgroundColor:'#3B82F6', color: 'white', padding:'0.25rem'}}  className="rounded-full aspect-square" icon={faPlus} />
           <span>Adicionar</span>
         </button>
         <div>
           <ReactSortable handle=".handle" list={links} setList={setLinks}>
             {links.map(l => (
-              <div key={l.key} className="mt-8 md:flex gap-6 items-center">
+              <div key={l.key} className="md:flex gap-6 items-center" style={{marginTop:'2rem'}}>
                 <div className="handle">
                   <FontAwesomeIcon 
-                    className="text-gray-500 mr-2 cursor-pointer"
+                    className="text-gray-500 cursor-pointer"
+                    style={{marginRight:'0.5rem'}}
                     icon={faGripLines} 
                   />
                 </div>
@@ -105,21 +106,22 @@ export default function PageLinksForm({user, page}) {
                       type="file" 
                       className="hidden"
                     />
-                    <label htmlFor={'icon'+l.key} className="border text-gray-700 mt-2 p-2 flex items-center gap-1 cursor-pointer mb-2 justify-center">
+                    <label htmlFor={'icon'+l.key} style={{marginTop:'0.5rem', marginBottom:'0.5rem', padding:'0.5rem'}} className="border text-gray-700 flex items-center gap-1 cursor-pointer justify-center">
                       <FontAwesomeIcon icon={faCloudArrowUp} />
                       <span>Trocar icone</span>
                     </label>
                     <button 
                       onClick={() => removeLink(l.key)}
                       type="button"
-                      className="bg-gray-300 w-full py-2 px-3 mb-2 h-full flex gap-2 items-center justify-center"
+                      style={{padding:'0.5rem 0.75rem 0.5rem 0.75rem', marginBottom:'0.5rem'}}
+                      className="bg-gray-300 w-full h-full flex gap-2 items-center justify-center"
                     >
                       <FontAwesomeIcon icon={faTrash} />
                       <span>Remover este link</span>
                     </button>
                   </div>
                 </div>
-                <div className="grow">
+                <div style={{flexGrow: 1}}>
                   <label className="input-label">TITULO:</label>
                   <input
                     value={l.title}
@@ -146,7 +148,7 @@ export default function PageLinksForm({user, page}) {
             ))}
           </ReactSortable>
         </div>
-        <div className="border-t pt-4 mt-4">
+        <div className="border-t" style={{paddingTop:'1rem', marginTop:'1rem'}}>
           <SubmitButton>
             <FontAwesomeIcon icon={faSave} />
             <span>Salvar</span>

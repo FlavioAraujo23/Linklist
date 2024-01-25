@@ -1,6 +1,6 @@
 export default function SectionBox({children}) {
   return (
-    <div className='bg-white m-8 shadow' style={{padding: "1rem"}}>
+    <div className='bg-white shadow' style={{padding: "1rem", margin:'2rem'}}>
       {children}
     </div>
   );

@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <main>
           <Header />
-          <div className='md:max-w-4xl max-w-full mx-auto md:p-6 p-4'>
+          <div className='md:max-w-4xl max-w-full md:p-6' style={{padding:'1rem', marginLeft:'auto', marginRight:'auto'}}>
             {children}
           </div>
         </main>

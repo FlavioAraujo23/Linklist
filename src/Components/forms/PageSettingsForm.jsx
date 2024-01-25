@@ -39,12 +39,15 @@ export default function PageSettingsForm({page,user}) {
       <SectionBox>
         <form action={saveBaseSettings}>
           <div 
-            className="bg-gray-300 py-4 -m-4 min-h-[300px] flex justify-center items-center bg-cover bg-center"
-            style={
-              bgType === 'color' 
-              ? {backgroundColor:bgColor} 
-              : {backgroundImage:`url(${bgImage})`}
-            }
+            className="bg-gray-300 min-h-[300px] flex justify-center items-center bg-cover bg-center"
+            style={{
+              paddingTop: '1rem',
+              paddingBottom: '1rem',
+              margin: '-1rem',
+              ...(bgType === 'color'
+                  ? { backgroundColor: bgColor }
+                  : { backgroundImage: `url(${bgImage})` })
+            }}
           >
             <div>
               <RadioTogglers 
@@ -57,7 +60,7 @@ export default function PageSettingsForm({page,user}) {
               />
               
                 {bgType === 'color' && (
-                  <div className="bg-gray-200 shadow mt-2 text-gray-700 p-2">
+                  <div className="bg-gray-200 shadow text-gray-700" style={{padding:'0.5rem', marginTop:'0.5rem'}}>
                     <div className="flex gap-2 justify-center">
                       <span>Escolha a cor</span>
                       <input
@@ -88,7 +91,7 @@ export default function PageSettingsForm({page,user}) {
                 )}
             </div>
           </div>
-          <div className="flex justify-center -mb-12">
+          <div className="flex justify-center" style={{marginBottom:'-3rem'}}>
             <div className="relative -top-8 w-[128px] h-[128px]">
               <div className="overflow-hidden rounded-full border-4 border-white shadow shadow-black/50 aspect-square w-32">
                 <Image 
