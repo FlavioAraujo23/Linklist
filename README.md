@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1>Linklist</h1>
+Descrição do Projeto:
 
-## Getting Started
+O Linktree é uma plataforma que permite aos usuários criar páginas personalizadas com uma coleção de links para suas redes sociais, sites, portfólios e muito mais. Com esta ferramenta, os usuários podem consolidar todos os seus links em uma única página, facilitando o compartilhamento e o acesso por parte de sua audiência.
+##
+Recursos Principais:
 
-First, run the development server:
+Páginas Personalizadas: Os usuários têm a capacidade de criar páginas personalizadas com seus próprios links e informações, permitindo uma apresentação única e profissional de seus conteúdos online.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Links Personalizados: Cada usuário pode adicionar links personalizados para suas redes sociais, blogs, lojas online, portfólios e qualquer outro recurso online relevante para sua presença na web.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Painel de Administração: A plataforma oferece um painel de administração intuitivo, onde os usuários podem gerenciar seu perfil, atualizar a imagem de capa, foto de perfil e editar os links de forma fácil e rápida.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Personalização de Perfil: Os usuários podem personalizar totalmente seu perfil, adicionando uma imagem de capa e uma foto de perfil que represente sua identidade ou marca.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+##
+Tecnologias Utilizadas:
 
-## Learn More
+Frontend: Desenvolvido utilizando tecnologias web modernas o uso do NextJs contribuiu para uma experiência de usuário atraente e responsiva em diferentes dispositivos.
 
-To learn more about Next.js, take a look at the following resources:
+Backend: Construído com Node.js e Express.js para a criação de uma API robusta que gerencia as operações de CRUD (Create, Read, Update, Delete) dos perfis dos usuários.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Banco de Dados: Utiliza um banco de dados não relacional mongoDB para armazenar e gerenciar os dados dos usuários e suas páginas personalizadas.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Autenticação e Autorização: Implementa sistemas de autenticação e autorização para proteger as informações dos usuários e garantir a segurança de suas contas.
+##
+Contribuições:
 
-## Deploy on Vercel
+Contribuições são bem-vindas! Se você deseja melhorar ou expandir este projeto, fique à vontade para abrir problemas (issues) ou enviar solicitações de pull (pull requests).
+##
+Como Contribuir:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+<p>Faça um fork do repositório.</p>
+<p>Clone o fork para o seu ambiente local.</p>
+<p>Crie uma branch para a sua contribuição (git checkout -b feature/nova-feature).</p>
+<p>Faça as alterações desejadas e commit (git commit -am 'Adiciona nova feature').</p>
+<p>Faça push para a sua branch (git push origin feature/nova-feature).</p>
+<p>Abra uma solicitação de pull solicitando a inclusão das suas alterações.</p>
+##
+Licença:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Este projeto está licenciado sob a MIT License, o que significa que você é livre para usá-lo e modificá-lo para fins pessoais e comerciais.
+
